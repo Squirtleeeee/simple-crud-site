@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="一个简单的本地记录管理网站" />
+    <title>我的记录 | CRUD 示例</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">SIMPLE CRUD</p>
+          <h1>我的记录</h1>
+          <p class="subtitle">一个简单的增删改查练习站点，数据保存在当前浏览器中。</p>
+        </div>
+        <div class="hero-mark" aria-hidden="true">✦</div>
+      </header>
+
+      <section class="stats" aria-label="数据概览">
+        <div class="stat-card">
+          <span class="stat-label">全部记录</span>
+          <strong id="total-count">0</strong>
+        </div>
+        <div class="stat-card accent">
+          <span class="stat-label">当前状态</span>
+          <strong id="status-text">准备就绪</strong>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <form id="record-form" class="panel form-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">CREATE / UPDATE</p>
+              <h2 id="form-title">新增记录</h2>
+            </div>
+            <span class="step-badge" id="form-badge">01</span>
+          </div>
+
+          <label for="record-name">标题</label>
+          <input id="record-name" name="name" type="text" maxlength="60" placeholder="例如：学习 Git" required />
+
+          <label for="record-description">内容</label>
+          <textarea id="record-description" name="description" rows="6" maxlength="300" placeholder="写下这条记录的内容"></textarea>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit" id="save-button">保存记录</button>
+            <button class="button ghost hidden" type="button" id="cancel-button">取消编辑</button>
+          </div>
+          <p class="form-hint">提示：刷新页面后，记录仍会保留。</p>
+        </form>
+
+        <section class="panel records-panel" aria-labelledby="records-title">
+          <div class="panel-heading records-heading">
+            <div>
+              <p class="section-kicker">READ / DELETE</p>
+              <h2 id="records-title">记录列表</h2>
+            </div>
+            <label class="search-box" aria-label="搜索记录">
+              <span aria-hidden="true">⌕</span>
+              <input id="search-input" type="search" placeholder="搜索..." />
+            </label>
+          </div>
+          <div id="record-list" class="record-list" aria-live="polite"></div>
+        </section>
+      </section>
+
+      <footer class="footer">本地 CRUD 练习项目 · 不连接服务器</footer>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
