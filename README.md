@@ -31,3 +31,4 @@ node --test test/store.test.mjs
 git add .
 git commit -m "创建简单 CRUD 网站"
 ```
+我正在学习git
